@@ -27,7 +27,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Handsontable = f()}})(function(){var define,module,exports;return (function outer (modules, cache, entry) {
   // Save the require from previous bundle to this closure if any
   var previousRequire = typeof require == "function" && require;
-  var globalNS = JSON.parse('{"zeroclipboard":"ZeroClipboard","moment":"moment","pikaday":"Pikaday"}') || {};
+  var globalNS = JSON.parse('{"zeroclipboard":"ZeroClipboard","moment":"moment","numbro":"numbro","pikaday":"Pikaday"}') || {};
 
   function newRequire(name, jumped){
     if(!cache[name]) {
@@ -4228,7 +4228,7 @@ var domHelpers = ($__helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"
 var domEventHelpers = ($__helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $__helpers_47_dom_47_event__ && $__helpers_47_dom_47_event__.__esModule && $__helpers_47_dom_47_event__ || {default: $__helpers_47_dom_47_event__});
 var HELPERS = [arrayHelpers, browserHelpers, dataHelpers, dateHelpers, featureHelpers, functionHelpers, mixedHelpers, numberHelpers, objectHelpers, settingHelpers, stringHelpers, unicodeHelpers];
 var DOM = [domHelpers, domEventHelpers];
-Handsontable.buildDate = 'Mon Apr 11 2016 14:03:53 GMT+0200 (CEST)';
+Handsontable.buildDate = 'Thu Apr 21 2016 01:37:33 GMT+0530 (IST)';
 Handsontable.packageName = 'handsontable';
 Handsontable.version = '0.24.2';
 var baseVersion = '@@baseVersion';
@@ -4370,7 +4370,7 @@ Handsontable.cellLookup = {validator: {
 },{"browser":23,"editors":29,"editors/autocompleteEditor":31,"editors/checkboxEditor":32,"editors/dateEditor":33,"editors/dropdownEditor":34,"editors/handsontableEditor":35,"editors/mobileTextEditor":36,"editors/numericEditor":37,"editors/passwordEditor":38,"editors/selectEditor":39,"editors/textEditor":40,"helpers/browser":43,"renderers":92,"renderers/autocompleteRenderer":94,"renderers/checkboxRenderer":95,"renderers/htmlRenderer":96,"renderers/numericRenderer":97,"renderers/passwordRenderer":98,"renderers/textRenderer":99,"validators/autocompleteValidator":105,"validators/dateValidator":106,"validators/numericValidator":107,"validators/timeValidator":108}],25:[function(_dereq_,module,exports){
 "use strict";
 var $__browser__,
-    $__numeral__,
+    $__numbro__,
     $__helpers_47_dom_47_element__,
     $__helpers_47_setting__,
     $__helpers_47_browser__,
@@ -4391,7 +4391,7 @@ var $__browser__,
     $__3rdparty_47_walkontable_47_src_47_selection__,
     $__3rdparty_47_walkontable_47_src_47_calculator_47_viewportColumns__;
 var Handsontable = ($__browser__ = _dereq_("browser"), $__browser__ && $__browser__.__esModule && $__browser__ || {default: $__browser__}).default;
-var numeral = ($__numeral__ = _dereq_("numeral"), $__numeral__ && $__numeral__.__esModule && $__numeral__ || {default: $__numeral__}).default;
+var numbro = ($__numbro__ = _dereq_("numbro"), $__numbro__ && $__numbro__.__esModule && $__numbro__ || {default: $__numbro__}).default;
 var $__2 = ($__helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"), $__helpers_47_dom_47_element__ && $__helpers_47_dom_47_element__.__esModule && $__helpers_47_dom_47_element__ || {default: $__helpers_47_dom_47_element__}),
     addClass = $__2.addClass,
     empty = $__2.empty,
@@ -5081,15 +5081,15 @@ Handsontable.Core = function Core(rootElement, userSettings) {
         if (cellProperties.type === 'numeric' && typeof changes[i][3] === 'string') {
           if (changes[i][3].length > 0 && (/^-?[\d\s]*(\.|\,)?\d*$/.test(changes[i][3]) || cellProperties.format)) {
             var len = changes[i][3].length;
-            if (typeof cellProperties.language == 'undefined') {
-              numeral.language('en');
+            if (typeof cellProperties.culture == 'undefined') {
+              numbro.culture('en');
             } else if (changes[i][3].indexOf('.') === len - 3 && changes[i][3].indexOf(',') === -1) {
-              numeral.language('en');
+              numbro.culture('en');
             } else {
-              numeral.language(cellProperties.language);
+              numbro.culture(cellProperties.culture);
             }
-            if (numeral.validate(changes[i][3])) {
-              changes[i][3] = numeral().unformat(changes[i][3]);
+            if (numbro.validate(changes[i][3])) {
+              changes[i][3] = numbro().unformat(changes[i][3]);
             }
           }
         }
@@ -6149,7 +6149,7 @@ DefaultSettings.prototype = {
   uncheckedTemplate: void 0,
   label: void 0,
   format: void 0,
-  language: void 0,
+  culture: void 0,
   selectOptions: void 0,
   autoColumnSize: void 0,
   autoRowSize: void 0,
@@ -6181,7 +6181,7 @@ DefaultSettings.prototype = {
 Handsontable.DefaultSettings = DefaultSettings;
 
 //# 
-},{"3rdparty/walkontable/src/calculator/viewportColumns":3,"3rdparty/walkontable/src/cell/coords":5,"3rdparty/walkontable/src/cell/range":6,"3rdparty/walkontable/src/selection":18,"browser":23,"dataMap":26,"dataSource":27,"editorManager":28,"eventManager":41,"helpers/array":42,"helpers/browser":43,"helpers/data":44,"helpers/dom/element":46,"helpers/number":51,"helpers/object":52,"helpers/setting":53,"helpers/string":54,"numeral":"numeral","plugins":59,"renderers":92,"tableView":101}],26:[function(_dereq_,module,exports){
+},{"3rdparty/walkontable/src/calculator/viewportColumns":3,"3rdparty/walkontable/src/cell/coords":5,"3rdparty/walkontable/src/cell/range":6,"3rdparty/walkontable/src/selection":18,"browser":23,"dataMap":26,"dataSource":27,"editorManager":28,"eventManager":41,"helpers/array":42,"helpers/browser":43,"helpers/data":44,"helpers/dom/element":46,"helpers/number":51,"helpers/object":52,"helpers/setting":53,"helpers/string":54,"numbro":undefined,"plugins":59,"renderers":92,"tableView":101}],26:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   DataMap: {get: function() {
@@ -8369,11 +8369,11 @@ Object.defineProperties(exports, {
   __esModule: {value: true}
 });
 var $___46__46__47_browser__,
-    $__numeral__,
+    $__numbro__,
     $___46__46__47_editors__,
     $__textEditor__;
 var Handsontable = ($___46__46__47_browser__ = _dereq_("browser"), $___46__46__47_browser__ && $___46__46__47_browser__.__esModule && $___46__46__47_browser__ || {default: $___46__46__47_browser__}).default;
-var numeral = ($__numeral__ = _dereq_("numeral"), $__numeral__ && $__numeral__.__esModule && $__numeral__ || {default: $__numeral__}).default;
+var numbro = ($__numbro__ = _dereq_("numbro"), $__numbro__ && $__numbro__.__esModule && $__numbro__ || {default: $__numbro__}).default;
 var $__2 = ($___46__46__47_editors__ = _dereq_("editors"), $___46__46__47_editors__ && $___46__46__47_editors__.__esModule && $___46__46__47_editors__ || {default: $___46__46__47_editors__}),
     getEditor = $__2.getEditor,
     registerEditor = $__2.registerEditor;
@@ -8384,10 +8384,10 @@ var NumericEditor = function NumericEditor() {
 var $NumericEditor = NumericEditor;
 ($traceurRuntime.createClass)(NumericEditor, {beginEditing: function(initialValue) {
     if (typeof initialValue === 'undefined' && this.originalValue) {
-      if (typeof this.cellProperties.language !== 'undefined') {
-        numeral.language(this.cellProperties.language);
+      if (typeof this.cellProperties.culture !== 'undefined') {
+        numbro.culture(this.cellProperties.culture);
       }
-      var decimalDelimiter = numeral.languageData().delimiters.decimal;
+      var decimalDelimiter = numbro.cultureData().delimiters.decimal;
       initialValue = ('' + this.originalValue).replace('.', decimalDelimiter);
     }
     $traceurRuntime.superGet(this, $NumericEditor.prototype, "beginEditing").call(this, initialValue);
@@ -8396,7 +8396,7 @@ var $NumericEditor = NumericEditor;
 registerEditor('numeric', NumericEditor);
 
 //# 
-},{"browser":23,"editors":29,"numeral":"numeral","textEditor":40}],38:[function(_dereq_,module,exports){
+},{"browser":23,"editors":29,"numbro":undefined,"textEditor":40}],38:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   PasswordEditor: {get: function() {
@@ -19252,11 +19252,11 @@ Object.defineProperties(exports, {
     }},
   __esModule: {value: true}
 });
-var $__numeral__,
+var $__numbro__,
     $___46__46__47_helpers_47_dom_47_element__,
     $___46__46__47_renderers__,
     $___46__46__47_helpers_47_number__;
-var numeral = ($__numeral__ = _dereq_("numeral"), $__numeral__ && $__numeral__.__esModule && $__numeral__ || {default: $__numeral__}).default;
+var numbro = ($__numbro__ = _dereq_("numbro"), $__numbro__ && $__numbro__.__esModule && $__numbro__ || {default: $__numbro__}).default;
 var addClass = ($___46__46__47_helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"), $___46__46__47_helpers_47_dom_47_element__ && $___46__46__47_helpers_47_dom_47_element__.__esModule && $___46__46__47_helpers_47_dom_47_element__ || {default: $___46__46__47_helpers_47_dom_47_element__}).addClass;
 var $__2 = ($___46__46__47_renderers__ = _dereq_("renderers"), $___46__46__47_renderers__ && $___46__46__47_renderers__.__esModule && $___46__46__47_renderers__ || {default: $___46__46__47_renderers__}),
     getRenderer = $__2.getRenderer,
@@ -19264,10 +19264,10 @@ var $__2 = ($___46__46__47_renderers__ = _dereq_("renderers"), $___46__46__47_re
 var isNumeric = ($___46__46__47_helpers_47_number__ = _dereq_("helpers/number"), $___46__46__47_helpers_47_number__ && $___46__46__47_helpers_47_number__.__esModule && $___46__46__47_helpers_47_number__ || {default: $___46__46__47_helpers_47_number__}).isNumeric;
 function numericRenderer(instance, TD, row, col, prop, value, cellProperties) {
   if (isNumeric(value)) {
-    if (typeof cellProperties.language !== 'undefined') {
-      numeral.language(cellProperties.language);
+    if (typeof cellProperties.culture !== 'undefined') {
+      numbro.culture(cellProperties.culture);
     }
-    value = numeral(value).format(cellProperties.format || '0');
+    value = numbro(value).format(cellProperties.format || '0');
     addClass(TD, 'htNumeric');
   }
   getRenderer('text')(instance, TD, row, col, prop, value, cellProperties);
@@ -19276,7 +19276,7 @@ function numericRenderer(instance, TD, row, col, prop, value, cellProperties) {
 registerRenderer('numeric', numericRenderer);
 
 //# 
-},{"helpers/dom/element":46,"helpers/number":51,"numeral":"numeral","renderers":92}],98:[function(_dereq_,module,exports){
+},{"helpers/dom/element":46,"helpers/number":51,"numbro":undefined,"renderers":92}],98:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   passwordRenderer: {get: function() {

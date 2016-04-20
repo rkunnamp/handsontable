@@ -1,5 +1,5 @@
 import Handsontable from './../browser';
-import numeral from 'numeral';
+import numbro from 'numbro';
 import {getEditor, registerEditor} from './../editors';
 import {TextEditor} from './textEditor';
 
@@ -7,7 +7,7 @@ import {TextEditor} from './textEditor';
  * @private
  * @editor NumericEditor
  * @class NumericEditor
- * @dependencies TextEditor numeral
+ * @dependencies TextEditor numbro
  */
 class NumericEditor extends TextEditor {
   /**
@@ -15,10 +15,10 @@ class NumericEditor extends TextEditor {
    */
   beginEditing(initialValue) {
     if (typeof initialValue === 'undefined' && this.originalValue) {
-      if (typeof this.cellProperties.language !== 'undefined') {
-        numeral.language(this.cellProperties.language);
+      if (typeof this.cellProperties.culture !== 'undefined') {
+        numbro.culture(this.cellProperties.culture);
       }
-      let decimalDelimiter = numeral.languageData().delimiters.decimal;
+      let decimalDelimiter = numbro.cultureData().delimiters.decimal;
       initialValue = ('' + this.originalValue).replace('.', decimalDelimiter);
     }
     super.beginEditing(initialValue);

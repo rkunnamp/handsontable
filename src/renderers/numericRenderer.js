@@ -1,4 +1,4 @@
-import numeral from 'numeral';
+import numbro from 'numbro';
 import {addClass} from './../helpers/dom/element';
 import {getRenderer, registerRenderer} from './../renderers';
 import {isNumeric} from './../helpers/number';
@@ -8,7 +8,7 @@ import {isNumeric} from './../helpers/number';
  *
  * @private
  * @renderer NumericRenderer
- * @dependencies numeral
+ * @dependencies numbro
  * @param {Object} instance Handsontable instance
  * @param {Element} TD Table cell where to render
  * @param {Number} row
@@ -19,10 +19,10 @@ import {isNumeric} from './../helpers/number';
  */
 function numericRenderer(instance, TD, row, col, prop, value, cellProperties) {
   if (isNumeric(value)) {
-    if (typeof cellProperties.language !== 'undefined') {
-      numeral.language(cellProperties.language);
+    if (typeof cellProperties.culture !== 'undefined') {
+      numbro.culture(cellProperties.culture);
     }
-    value = numeral(value).format(cellProperties.format || '0'); //docs: http://numeraljs.com/
+    value = numbro(value).format(cellProperties.format || '0'); //docs: http://numbrojs.com/
     addClass(TD, 'htNumeric');
   }
   getRenderer('text')(instance, TD, row, col, prop, value, cellProperties);

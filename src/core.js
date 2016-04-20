@@ -1,5 +1,5 @@
 import Handsontable from './browser';
-import numeral from 'numeral';
+import numbro from 'numbro';
 import {addClass, empty, isChildOfWebComponentTable, removeClass} from './helpers/dom/element';
 import {columnFactory} from './helpers/setting';
 import {isMobileBrowser} from './helpers/browser';
@@ -26,7 +26,7 @@ Handsontable.activeGuid = null;
  * Handsontable constructor
  *
  * @core
- * @dependencies numeral
+ * @dependencies numbro
  * @constructor Core
  * @description
  *
@@ -951,17 +951,17 @@ Handsontable.Core = function Core(rootElement, userSettings) {
         if (cellProperties.type === 'numeric' && typeof changes[i][3] === 'string') {
           if (changes[i][3].length > 0 && (/^-?[\d\s]*(\.|\,)?\d*$/.test(changes[i][3]) || cellProperties.format)) {
             var len = changes[i][3].length;
-            if (typeof cellProperties.language == 'undefined') {
-              numeral.language('en');
+            if (typeof cellProperties.culture == 'undefined') {
+              numbro.culture('en');
             }
             // this input in format XXXX.XX is likely to come from paste. Let's parse it using international rules
             else if (changes[i][3].indexOf('.') === len - 3 && changes[i][3].indexOf(',') === -1) {
-              numeral.language('en');
+              numbro.culture('en');
             } else {
-              numeral.language(cellProperties.language);
+              numbro.culture(cellProperties.culture);
             }
-            if (numeral.validate(changes[i][3])) {
-              changes[i][3] = numeral().unformat(changes[i][3]);
+            if (numbro.validate(changes[i][3])) {
+              changes[i][3] = numbro().unformat(changes[i][3]);
             }
           }
         }
@@ -4532,7 +4532,7 @@ DefaultSettings.prototype = {
    * ...
    * columns: [{
    *   type: 'numeric',
-   *   language: 'uk'
+   *   culture: 'uk'
    * }]
    * ...
    * ```
@@ -4540,7 +4540,7 @@ DefaultSettings.prototype = {
    * @type {String}
    * @default 'en'
    */
-  language: void 0,
+  culture: void 0,
 
   /**
    * @description
