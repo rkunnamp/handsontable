@@ -1,3 +1,4 @@
+grunt build
 1. npm install will create npm_modules directory and fetch the modules. run npm_modules (if not already run)
 2. copy numbro to npm_modules
     the folder should contain

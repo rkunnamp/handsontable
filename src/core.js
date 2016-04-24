@@ -958,7 +958,12 @@ Handsontable.Core = function Core(rootElement, userSettings) {
             else if (changes[i][3].indexOf('.') === len - 3 && changes[i][3].indexOf(',') === -1) {
               numbro.culture('en');
             } else {
-              numbro.culture(cellProperties.culture);
+              if (typeof cellProperties.cultureDef !== 'undefined') {
+                numbro.culture(cellProperties.culture, cellProperties.cultureDef);
+              }
+              else {
+                numbro.culture(cellProperties.culture);
+              }
             }
             if (numbro.validate(changes[i][3])) {
               changes[i][3] = numbro().unformat(changes[i][3]);

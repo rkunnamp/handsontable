@@ -16,7 +16,12 @@ class NumericEditor extends TextEditor {
   beginEditing(initialValue) {
     if (typeof initialValue === 'undefined' && this.originalValue) {
       if (typeof this.cellProperties.culture !== 'undefined') {
-        numbro.culture(this.cellProperties.culture);
+        if (typeof this.cellProperties.cultureDef !== 'undefined') {
+                numbro.culture(this.cellProperties.culture, this.cellProperties.cultureDef);
+        }
+        else {
+          numbro.culture(this.cellProperties.culture);
+        }
       }
       let decimalDelimiter = numbro.cultureData().delimiters.decimal;
       initialValue = ('' + this.originalValue).replace('.', decimalDelimiter);

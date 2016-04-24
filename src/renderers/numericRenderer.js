@@ -20,7 +20,12 @@ import {isNumeric} from './../helpers/number';
 function numericRenderer(instance, TD, row, col, prop, value, cellProperties) {
   if (isNumeric(value)) {
     if (typeof cellProperties.culture !== 'undefined') {
-      numbro.culture(cellProperties.culture);
+      if (typeof cellProperties.cultureDef !== 'undefined') {
+        numbro.culture(cellProperties.culture, cellProperties.cultureDef);
+      }
+      else {
+        numbro.culture(cellProperties.culture);
+      }
     }
     value = numbro(value).format(cellProperties.format || '0'); //docs: http://numbrojs.com/
     addClass(TD, 'htNumeric');
