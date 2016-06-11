@@ -1,4 +1,3 @@
-import numbro from 'numbro';
 import {addClass} from './../helpers/dom/element';
 import {getRenderer, registerRenderer} from './../renderers';
 import {isNumeric} from './../helpers/number';
@@ -8,7 +7,6 @@ import {isNumeric} from './../helpers/number';
  *
  * @private
  * @renderer NumericRenderer
- * @dependencies numbro
  * @param {Object} instance Handsontable instance
  * @param {Element} TD Table cell where to render
  * @param {Number} row
@@ -19,15 +17,12 @@ import {isNumeric} from './../helpers/number';
  */
 function numericRenderer(instance, TD, row, col, prop, value, cellProperties) {
   if (isNumeric(value)) {
-    if (typeof cellProperties.culture !== 'undefined') {
-      if (typeof cellProperties.cultureDef !== 'undefined') {
-        numbro.culture(cellProperties.culture, cellProperties.cultureDef);
-      }
-      else {
-        numbro.culture(cellProperties.culture);
-      }
+    if (typeof cellProperties.formatter !== 'undefined') {
+      value = cellProperties.formatter.format(value);
     }
-    value = numbro(value).format(cellProperties.format || '0'); //docs: http://numbrojs.com/
+    else {
+      value = '' + value;
+    }
     addClass(TD, 'htNumeric');
   }
   getRenderer('text')(instance, TD, row, col, prop, value, cellProperties);

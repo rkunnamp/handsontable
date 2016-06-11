@@ -27,7 +27,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Handsontable = f()}})(function(){var define,module,exports;return (function outer (modules, cache, entry) {
   // Save the require from previous bundle to this closure if any
   var previousRequire = typeof require == "function" && require;
-  var globalNS = JSON.parse('{"zeroclipboard":"ZeroClipboard","moment":"moment","numbro":"numbro","pikaday":"Pikaday"}') || {};
+  var globalNS = JSON.parse('{"zeroclipboard":"ZeroClipboard","moment":"moment","pikaday":"Pikaday"}') || {};
 
   function newRequire(name, jumped){
     if(!cache[name]) {
@@ -4228,7 +4228,7 @@ var domHelpers = ($__helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"
 var domEventHelpers = ($__helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $__helpers_47_dom_47_event__ && $__helpers_47_dom_47_event__.__esModule && $__helpers_47_dom_47_event__ || {default: $__helpers_47_dom_47_event__});
 var HELPERS = [arrayHelpers, browserHelpers, dataHelpers, dateHelpers, featureHelpers, functionHelpers, mixedHelpers, numberHelpers, objectHelpers, settingHelpers, stringHelpers, unicodeHelpers];
 var DOM = [domHelpers, domEventHelpers];
-Handsontable.buildDate = 'Thu Apr 21 2016 23:01:34 GMT+0530 (IST)';
+Handsontable.buildDate = 'Sun May 01 2016 04:23:00 GMT+0530 (IST)';
 Handsontable.packageName = 'handsontable';
 Handsontable.version = '0.24.2';
 var baseVersion = '@@baseVersion';
@@ -4370,7 +4370,6 @@ Handsontable.cellLookup = {validator: {
 },{"browser":23,"editors":29,"editors/autocompleteEditor":31,"editors/checkboxEditor":32,"editors/dateEditor":33,"editors/dropdownEditor":34,"editors/handsontableEditor":35,"editors/mobileTextEditor":36,"editors/numericEditor":37,"editors/passwordEditor":38,"editors/selectEditor":39,"editors/textEditor":40,"helpers/browser":43,"renderers":92,"renderers/autocompleteRenderer":94,"renderers/checkboxRenderer":95,"renderers/htmlRenderer":96,"renderers/numericRenderer":97,"renderers/passwordRenderer":98,"renderers/textRenderer":99,"validators/autocompleteValidator":105,"validators/dateValidator":106,"validators/numericValidator":107,"validators/timeValidator":108}],25:[function(_dereq_,module,exports){
 "use strict";
 var $__browser__,
-    $__numbro__,
     $__helpers_47_dom_47_element__,
     $__helpers_47_setting__,
     $__helpers_47_browser__,
@@ -4391,35 +4390,34 @@ var $__browser__,
     $__3rdparty_47_walkontable_47_src_47_selection__,
     $__3rdparty_47_walkontable_47_src_47_calculator_47_viewportColumns__;
 var Handsontable = ($__browser__ = _dereq_("browser"), $__browser__ && $__browser__.__esModule && $__browser__ || {default: $__browser__}).default;
-var numbro = ($__numbro__ = _dereq_("numbro"), $__numbro__ && $__numbro__.__esModule && $__numbro__ || {default: $__numbro__}).default;
-var $__2 = ($__helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"), $__helpers_47_dom_47_element__ && $__helpers_47_dom_47_element__.__esModule && $__helpers_47_dom_47_element__ || {default: $__helpers_47_dom_47_element__}),
-    addClass = $__2.addClass,
-    empty = $__2.empty,
-    isChildOfWebComponentTable = $__2.isChildOfWebComponentTable,
-    removeClass = $__2.removeClass;
+var $__1 = ($__helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"), $__helpers_47_dom_47_element__ && $__helpers_47_dom_47_element__.__esModule && $__helpers_47_dom_47_element__ || {default: $__helpers_47_dom_47_element__}),
+    addClass = $__1.addClass,
+    empty = $__1.empty,
+    isChildOfWebComponentTable = $__1.isChildOfWebComponentTable,
+    removeClass = $__1.removeClass;
 var columnFactory = ($__helpers_47_setting__ = _dereq_("helpers/setting"), $__helpers_47_setting__ && $__helpers_47_setting__.__esModule && $__helpers_47_setting__ || {default: $__helpers_47_setting__}).columnFactory;
 var isMobileBrowser = ($__helpers_47_browser__ = _dereq_("helpers/browser"), $__helpers_47_browser__ && $__helpers_47_browser__.__esModule && $__helpers_47_browser__ || {default: $__helpers_47_browser__}).isMobileBrowser;
 var DataMap = ($__dataMap__ = _dereq_("dataMap"), $__dataMap__ && $__dataMap__.__esModule && $__dataMap__ || {default: $__dataMap__}).DataMap;
 var EditorManager = ($__editorManager__ = _dereq_("editorManager"), $__editorManager__ && $__editorManager__.__esModule && $__editorManager__ || {default: $__editorManager__}).EditorManager;
 var eventManagerObject = ($__eventManager__ = _dereq_("eventManager"), $__eventManager__ && $__eventManager__.__esModule && $__eventManager__ || {default: $__eventManager__}).eventManager;
-var $__8 = ($__helpers_47_object__ = _dereq_("helpers/object"), $__helpers_47_object__ && $__helpers_47_object__.__esModule && $__helpers_47_object__ || {default: $__helpers_47_object__}),
-    extend = $__8.extend,
-    duckSchema = $__8.duckSchema,
-    isObjectEquals = $__8.isObjectEquals,
-    deepClone = $__8.deepClone;
-var $__9 = ($__helpers_47_array__ = _dereq_("helpers/array"), $__helpers_47_array__ && $__helpers_47_array__.__esModule && $__helpers_47_array__ || {default: $__helpers_47_array__}),
-    arrayFlatten = $__9.arrayFlatten,
-    arrayMap = $__9.arrayMap;
+var $__7 = ($__helpers_47_object__ = _dereq_("helpers/object"), $__helpers_47_object__ && $__helpers_47_object__.__esModule && $__helpers_47_object__ || {default: $__helpers_47_object__}),
+    extend = $__7.extend,
+    duckSchema = $__7.duckSchema,
+    isObjectEquals = $__7.isObjectEquals,
+    deepClone = $__7.deepClone;
+var $__8 = ($__helpers_47_array__ = _dereq_("helpers/array"), $__helpers_47_array__ && $__helpers_47_array__.__esModule && $__helpers_47_array__ || {default: $__helpers_47_array__}),
+    arrayFlatten = $__8.arrayFlatten,
+    arrayMap = $__8.arrayMap;
 var getPlugin = ($__plugins__ = _dereq_("plugins"), $__plugins__ && $__plugins__.__esModule && $__plugins__ || {default: $__plugins__}).getPlugin;
 var getRenderer = ($__renderers__ = _dereq_("renderers"), $__renderers__ && $__renderers__.__esModule && $__renderers__ || {default: $__renderers__}).getRenderer;
 var randomString = ($__helpers_47_string__ = _dereq_("helpers/string"), $__helpers_47_string__ && $__helpers_47_string__.__esModule && $__helpers_47_string__ || {default: $__helpers_47_string__}).randomString;
 var rangeEach = ($__helpers_47_number__ = _dereq_("helpers/number"), $__helpers_47_number__ && $__helpers_47_number__.__esModule && $__helpers_47_number__ || {default: $__helpers_47_number__}).rangeEach;
 var TableView = ($__tableView__ = _dereq_("tableView"), $__tableView__ && $__tableView__.__esModule && $__tableView__ || {default: $__tableView__}).TableView;
 var DataSource = ($__dataSource__ = _dereq_("dataSource"), $__dataSource__ && $__dataSource__.__esModule && $__dataSource__ || {default: $__dataSource__}).DataSource;
-var $__16 = ($__helpers_47_data__ = _dereq_("helpers/data"), $__helpers_47_data__ && $__helpers_47_data__.__esModule && $__helpers_47_data__ || {default: $__helpers_47_data__}),
-    translateRowsToColumns = $__16.translateRowsToColumns,
-    cellMethodLookupFactory = $__16.cellMethodLookupFactory,
-    spreadsheetColumnLabel = $__16.spreadsheetColumnLabel;
+var $__15 = ($__helpers_47_data__ = _dereq_("helpers/data"), $__helpers_47_data__ && $__helpers_47_data__.__esModule && $__helpers_47_data__ || {default: $__helpers_47_data__}),
+    translateRowsToColumns = $__15.translateRowsToColumns,
+    cellMethodLookupFactory = $__15.cellMethodLookupFactory,
+    spreadsheetColumnLabel = $__15.spreadsheetColumnLabel;
 var WalkontableCellCoords = ($__3rdparty_47_walkontable_47_src_47_cell_47_coords__ = _dereq_("3rdparty/walkontable/src/cell/coords"), $__3rdparty_47_walkontable_47_src_47_cell_47_coords__ && $__3rdparty_47_walkontable_47_src_47_cell_47_coords__.__esModule && $__3rdparty_47_walkontable_47_src_47_cell_47_coords__ || {default: $__3rdparty_47_walkontable_47_src_47_cell_47_coords__}).WalkontableCellCoords;
 var WalkontableCellRange = ($__3rdparty_47_walkontable_47_src_47_cell_47_range__ = _dereq_("3rdparty/walkontable/src/cell/range"), $__3rdparty_47_walkontable_47_src_47_cell_47_range__ && $__3rdparty_47_walkontable_47_src_47_cell_47_range__.__esModule && $__3rdparty_47_walkontable_47_src_47_cell_47_range__ || {default: $__3rdparty_47_walkontable_47_src_47_cell_47_range__}).WalkontableCellRange;
 var WalkontableSelection = ($__3rdparty_47_walkontable_47_src_47_selection__ = _dereq_("3rdparty/walkontable/src/selection"), $__3rdparty_47_walkontable_47_src_47_selection__ && $__3rdparty_47_walkontable_47_src_47_selection__.__esModule && $__3rdparty_47_walkontable_47_src_47_selection__ || {default: $__3rdparty_47_walkontable_47_src_47_selection__}).WalkontableSelection;
@@ -4535,10 +4533,10 @@ Handsontable.Core = function Core(rootElement, userSettings) {
         case 'remove_col':
           var logicalColumnIndex = translateColIndex(index);
           datamap.removeCol(index, amount);
-          for (var row$__22 = 0,
-              len$__23 = instance.countSourceRows(); row$__22 < len$__23; row$__22++) {
-            if (priv.cellSettings[row$__22]) {
-              priv.cellSettings[row$__22].splice(logicalColumnIndex, amount);
+          for (var row$__21 = 0,
+              len$__22 = instance.countSourceRows(); row$__21 < len$__22; row$__21++) {
+            if (priv.cellSettings[row$__21]) {
+              priv.cellSettings[row$__21].splice(logicalColumnIndex, amount);
             }
           }
           var fixedColumnsLeft = instance.getSettings().fixedColumnsLeft;
@@ -5079,18 +5077,10 @@ Handsontable.Core = function Core(rootElement, userSettings) {
         var col = datamap.propToCol(changes[i][1]);
         var cellProperties = instance.getCellMeta(row, col);
         if (cellProperties.type === 'numeric' && typeof changes[i][3] === 'string') {
-          if (changes[i][3].length > 0 && (/^-?[\d\s]*(\.|\,)?\d*$/.test(changes[i][3]) || cellProperties.format)) {
-            var len = changes[i][3].length;
-            if (typeof cellProperties.culture == 'undefined') {
-              numbro.culture('en');
-            } else if (changes[i][3].indexOf('.') === len - 3 && changes[i][3].indexOf(',') === -1) {
-              numbro.culture('en');
-            } else {
-              numbro.culture(cellProperties.culture);
-            }
-            if (numbro.validate(changes[i][3])) {
-              changes[i][3] = numbro().unformat(changes[i][3]);
-            }
+          if (changes[i][3].length > 0 && (typeof cellProperties.formatter !== 'undefined')) {
+            try {
+              changes[i][3] = cellProperties.formatter.parse(changes[i][3]);
+            } catch (e) {}
           }
         }
         if (instance.getCellValidator(cellProperties)) {
@@ -5429,9 +5419,9 @@ Handsontable.Core = function Core(rootElement, userSettings) {
       }
     }
     if (height === null) {
-      var initialStyle$__24 = instance.rootElement.getAttribute('data-initialstyle');
-      if (initialStyle$__24 && (initialStyle$__24.indexOf('height') > -1 || initialStyle$__24.indexOf('overflow') > -1)) {
-        instance.rootElement.setAttribute('style', initialStyle$__24);
+      var initialStyle$__23 = instance.rootElement.getAttribute('data-initialstyle');
+      if (initialStyle$__23 && (initialStyle$__23.indexOf('height') > -1 || initialStyle$__23.indexOf('overflow') > -1)) {
+        instance.rootElement.setAttribute('style', initialStyle$__23);
       } else {
         instance.rootElement.style.height = '';
         instance.rootElement.style.overflow = '';
@@ -5553,7 +5543,7 @@ Handsontable.Core = function Core(rootElement, userSettings) {
     return data[0];
   };
   this.getDataType = function(rowFrom, columnFrom, rowTo, columnTo) {
-    var $__21 = this;
+    var $__20 = this;
     var previousType = null;
     var currentType = null;
     if (rowFrom === void 0) {
@@ -5572,7 +5562,7 @@ Handsontable.Core = function Core(rootElement, userSettings) {
     rangeEach(Math.min(rowFrom, rowTo), Math.max(rowFrom, rowTo), (function(row) {
       var isTypeEqual = true;
       rangeEach(Math.min(columnFrom, columnTo), Math.max(columnFrom, columnTo), (function(column) {
-        var cellType = $__21.getCellMeta(row, column);
+        var cellType = $__20.getCellMeta(row, column);
         currentType = cellType.type;
         if (previousType) {
           isTypeEqual = previousType === currentType;
@@ -6181,7 +6171,7 @@ DefaultSettings.prototype = {
 Handsontable.DefaultSettings = DefaultSettings;
 
 //# 
-},{"3rdparty/walkontable/src/calculator/viewportColumns":3,"3rdparty/walkontable/src/cell/coords":5,"3rdparty/walkontable/src/cell/range":6,"3rdparty/walkontable/src/selection":18,"browser":23,"dataMap":26,"dataSource":27,"editorManager":28,"eventManager":41,"helpers/array":42,"helpers/browser":43,"helpers/data":44,"helpers/dom/element":46,"helpers/number":51,"helpers/object":52,"helpers/setting":53,"helpers/string":54,"numbro":undefined,"plugins":59,"renderers":92,"tableView":101}],26:[function(_dereq_,module,exports){
+},{"3rdparty/walkontable/src/calculator/viewportColumns":3,"3rdparty/walkontable/src/cell/coords":5,"3rdparty/walkontable/src/cell/range":6,"3rdparty/walkontable/src/selection":18,"browser":23,"dataMap":26,"dataSource":27,"editorManager":28,"eventManager":41,"helpers/array":42,"helpers/browser":43,"helpers/data":44,"helpers/dom/element":46,"helpers/number":51,"helpers/object":52,"helpers/setting":53,"helpers/string":54,"plugins":59,"renderers":92,"tableView":101}],26:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   DataMap: {get: function() {
@@ -8369,14 +8359,12 @@ Object.defineProperties(exports, {
   __esModule: {value: true}
 });
 var $___46__46__47_browser__,
-    $__numbro__,
     $___46__46__47_editors__,
     $__textEditor__;
 var Handsontable = ($___46__46__47_browser__ = _dereq_("browser"), $___46__46__47_browser__ && $___46__46__47_browser__.__esModule && $___46__46__47_browser__ || {default: $___46__46__47_browser__}).default;
-var numbro = ($__numbro__ = _dereq_("numbro"), $__numbro__ && $__numbro__.__esModule && $__numbro__ || {default: $__numbro__}).default;
-var $__2 = ($___46__46__47_editors__ = _dereq_("editors"), $___46__46__47_editors__ && $___46__46__47_editors__.__esModule && $___46__46__47_editors__ || {default: $___46__46__47_editors__}),
-    getEditor = $__2.getEditor,
-    registerEditor = $__2.registerEditor;
+var $__1 = ($___46__46__47_editors__ = _dereq_("editors"), $___46__46__47_editors__ && $___46__46__47_editors__.__esModule && $___46__46__47_editors__ || {default: $___46__46__47_editors__}),
+    getEditor = $__1.getEditor,
+    registerEditor = $__1.registerEditor;
 var TextEditor = ($__textEditor__ = _dereq_("textEditor"), $__textEditor__ && $__textEditor__.__esModule && $__textEditor__ || {default: $__textEditor__}).TextEditor;
 var NumericEditor = function NumericEditor() {
   $traceurRuntime.superConstructor($NumericEditor).apply(this, arguments);
@@ -8384,11 +8372,11 @@ var NumericEditor = function NumericEditor() {
 var $NumericEditor = NumericEditor;
 ($traceurRuntime.createClass)(NumericEditor, {beginEditing: function(initialValue) {
     if (typeof initialValue === 'undefined' && this.originalValue) {
-      if (typeof this.cellProperties.culture !== 'undefined') {
-        numbro.culture(this.cellProperties.culture);
+      if (typeof cellProperties.formatter !== 'undefined') {
+        if (typeof cellProperties.decimalSeparator !== 'undefined') {
+          initialValue = ('' + this.originalValue).replace('.', cellProperties.decimalSeparator);
+        }
       }
-      var decimalDelimiter = numbro.cultureData().delimiters.decimal;
-      initialValue = ('' + this.originalValue).replace('.', decimalDelimiter);
     }
     $traceurRuntime.superGet(this, $NumericEditor.prototype, "beginEditing").call(this, initialValue);
   }}, {}, TextEditor);
@@ -8396,7 +8384,7 @@ var $NumericEditor = NumericEditor;
 registerEditor('numeric', NumericEditor);
 
 //# 
-},{"browser":23,"editors":29,"numbro":undefined,"textEditor":40}],38:[function(_dereq_,module,exports){
+},{"browser":23,"editors":29,"textEditor":40}],38:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   PasswordEditor: {get: function() {
@@ -19252,22 +19240,21 @@ Object.defineProperties(exports, {
     }},
   __esModule: {value: true}
 });
-var $__numbro__,
-    $___46__46__47_helpers_47_dom_47_element__,
+var $___46__46__47_helpers_47_dom_47_element__,
     $___46__46__47_renderers__,
     $___46__46__47_helpers_47_number__;
-var numbro = ($__numbro__ = _dereq_("numbro"), $__numbro__ && $__numbro__.__esModule && $__numbro__ || {default: $__numbro__}).default;
 var addClass = ($___46__46__47_helpers_47_dom_47_element__ = _dereq_("helpers/dom/element"), $___46__46__47_helpers_47_dom_47_element__ && $___46__46__47_helpers_47_dom_47_element__.__esModule && $___46__46__47_helpers_47_dom_47_element__ || {default: $___46__46__47_helpers_47_dom_47_element__}).addClass;
-var $__2 = ($___46__46__47_renderers__ = _dereq_("renderers"), $___46__46__47_renderers__ && $___46__46__47_renderers__.__esModule && $___46__46__47_renderers__ || {default: $___46__46__47_renderers__}),
-    getRenderer = $__2.getRenderer,
-    registerRenderer = $__2.registerRenderer;
+var $__1 = ($___46__46__47_renderers__ = _dereq_("renderers"), $___46__46__47_renderers__ && $___46__46__47_renderers__.__esModule && $___46__46__47_renderers__ || {default: $___46__46__47_renderers__}),
+    getRenderer = $__1.getRenderer,
+    registerRenderer = $__1.registerRenderer;
 var isNumeric = ($___46__46__47_helpers_47_number__ = _dereq_("helpers/number"), $___46__46__47_helpers_47_number__ && $___46__46__47_helpers_47_number__.__esModule && $___46__46__47_helpers_47_number__ || {default: $___46__46__47_helpers_47_number__}).isNumeric;
 function numericRenderer(instance, TD, row, col, prop, value, cellProperties) {
   if (isNumeric(value)) {
-    if (typeof cellProperties.culture !== 'undefined') {
-      numbro.culture(cellProperties.culture);
+    if (typeof cellProperties.formatter !== 'undefined') {
+      value = formatter.format(value);
+    } else {
+      value = '' + value;
     }
-    value = numbro(value).format(cellProperties.format || '0');
     addClass(TD, 'htNumeric');
   }
   getRenderer('text')(instance, TD, row, col, prop, value, cellProperties);
@@ -19276,7 +19263,7 @@ function numericRenderer(instance, TD, row, col, prop, value, cellProperties) {
 registerRenderer('numeric', numericRenderer);
 
 //# 
-},{"helpers/dom/element":46,"helpers/number":51,"numbro":undefined,"renderers":92}],98:[function(_dereq_,module,exports){
+},{"helpers/dom/element":46,"helpers/number":51,"renderers":92}],98:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   passwordRenderer: {get: function() {

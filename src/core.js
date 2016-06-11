@@ -1,5 +1,4 @@
 import Handsontable from './browser';
-import numbro from 'numbro';
 import {addClass, empty, isChildOfWebComponentTable, removeClass} from './helpers/dom/element';
 import {columnFactory} from './helpers/setting';
 import {isMobileBrowser} from './helpers/browser';
@@ -949,24 +948,10 @@ Handsontable.Core = function Core(rootElement, userSettings) {
         var cellProperties = instance.getCellMeta(row, col);
 
         if (cellProperties.type === 'numeric' && typeof changes[i][3] === 'string') {
-          if (changes[i][3].length > 0 && (/^-?[\d\s]*(\.|\,)?\d*$/.test(changes[i][3]) || cellProperties.format)) {
-            var len = changes[i][3].length;
-            if (typeof cellProperties.culture == 'undefined') {
-              numbro.culture('en');
-            }
-            // this input in format XXXX.XX is likely to come from paste. Let's parse it using international rules
-            else if (changes[i][3].indexOf('.') === len - 3 && changes[i][3].indexOf(',') === -1) {
-              numbro.culture('en');
-            } else {
-              if (typeof cellProperties.cultureDef !== 'undefined') {
-                numbro.culture(cellProperties.culture, cellProperties.cultureDef);
-              }
-              else {
-                numbro.culture(cellProperties.culture);
-              }
-            }
-            if (numbro.validate(changes[i][3])) {
-              changes[i][3] = numbro().unformat(changes[i][3]);
+          if (changes[i][3].length > 0 && (typeof cellProperties.formatter !== 'undefined')) {
+            try {
+              changes[i][3] = cellProperties.formatter.parse(changes[i][3]);
+            } catch (e) {
             }
           }
         }

@@ -1,14 +1,15 @@
 grunt build
 1. npm install will create npm_modules directory and fetch the modules. run npm_modules (if not already run)
-2. copy numbro to npm_modules
-    the folder should contain
-     'numbro.js'
-     'languages.js'
-     and the folder 'languages'
-
 the following files have been changed so as to replace numeral.js with numbro.js
 package.json
 src/core.js
 src/editor/numericEditor.js
 src/editor/numericRendered.js
 grunt build will create the handsontable.js in dist folder
+
+
+when cell is of type 'numeric'
+expects the following  cellProperties
+    1.formatter
+    2.decimalSeparator
+
